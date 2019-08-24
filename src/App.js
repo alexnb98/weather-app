@@ -3,6 +3,7 @@ import './App.css';
 import Heidelberg from './data/example.json'
 import Background from './components/Background/Background';
 import Day from './components/Day/Day';
+import Week from './components/Week/Week';
 
 function App() {
   const fivedays = Heidelberg.list.filter(item => {
@@ -14,7 +15,8 @@ function App() {
         <div className="container">
           <div className='box'>
             <h1 className='center'>Heidelberg</h1>
-            <Day temp='16' desc='clear sky'></Day>
+            <Day temp={Heidelberg.list[0].main.temp} desc='clear sky' icon={800}></Day>
+            <Week list={fivedays}></Week>
           </div>
         </div>
       </Background>
