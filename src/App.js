@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Heidelberg from './data/example.json'
+import Background from './components/Background/Background';
+import Day from './components/Day/Day';
 
 function App() {
+  const fivedays = Heidelberg.list.filter(item => {
+    return item.dt_txt.includes('12:00:00')
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Background>
+        <div className="container">
+          <div className='box'>
+            <h1 className='center'>Heidelberg</h1>
+            <Day temp='16' desc='clear sky'></Day>
+          </div>
+        </div>
+      </Background>
     </div>
   );
 }
