@@ -3,10 +3,10 @@ import styles from "./Week.module.css";
 import Card from "./Card/Card";
 
 export default function Week({list}) {
-  list.shift();
+  const newList = list.slice(1);
   return (
     <div className={styles.week}>
-      {list.map((item, id) => {
+      {newList.map((item, id) => {
         return (
           <Card
             date={item.dt_txt}
